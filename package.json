@@ -1,0 +1,25 @@
+{
+  "name": "transaction-store",
+  "version": "0.1.0",
+  "description": "Export your financial transactions from any bank.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noahtallen/transaction-store.git"
+  },
+  "keywords": [
+    "finance",
+    "transactions",
+    "fintech",
+    "banking"
+  ],
+  "author": "Noah Allen",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/noahtallen/transaction-store/issues"
+  },
+  "homepage": "https://github.com/noahtallen/transaction-store#readme"
+}
