@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Login to the application.</title>
+</head>
+<body>
+	<h1>Acces your transaction database.</h1>
+	<h2>Login to the application.</h1>
+	<form action="/auth/signin" method="POST"> 
+		<input type="text" name="email" placeholder="email"> 
+		<input type="password" name="password" placeholder="password"> 
+		<button>login</button> 
+	</form>
+	<h2>Create an account.</h2>
+	<form action="/auth/signup" method="POST"> 
+		<input type="text" name="email" placeholder="email"> 
+		<input type="password" name="password" placeholder="password"> 
+		<button>Create an account.</button> 
+	</form>
+</body>
+</html>

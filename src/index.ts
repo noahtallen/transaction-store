@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import * as bodyParser from 'body-parser';
+import * as path from 'path';
 
 // Load config values.
 import * as dotenv from 'dotenv';
@@ -35,7 +36,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 
 // 3. Setup express routes:
 server.get('/', (req, res) => {
-	res.json({ message: 'welcome!' });
+	res.sendFile(path.resolve('./src/app/logged-out.html'));
 });
 
 server.listen(port, () => {
