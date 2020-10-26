@@ -118,4 +118,5 @@ authRouter.post('/signup', async function (req, res, next) {
 		accessToken,
 	});
 });
+
 export default authRouter;
