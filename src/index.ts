@@ -33,8 +33,6 @@ server.use(bodyParser.json());
 
 server.use(bodyParser.urlencoded({ extended: true }));
 
-server.use(errorMiddleware);
-
 // 3. Setup express routes:
 server.get('/', (req, res) => {
 	res.json({ message: 'welcome!' });
@@ -45,3 +43,6 @@ server.listen(port, () => {
 });
 
 server.use('/auth', authRouter);
+
+// 4. Setup error middleware. Must be last.
+server.use(errorMiddleware);

@@ -6,9 +6,7 @@ import { hashPassword, verifyPassword } from '../utils/passwords';
 
 const authRouter = express.Router();
 
-const { JWT_SECRET: jwtSecret } = process.env;
-
-authRouter.post('/signin', async (req, res, next) => {
+authRouter.post('/signin', async function (req, res, next) {
 	const { email, password } = req.body;
 	if (!email || !password) {
 		return next(
@@ -35,6 +33,7 @@ authRouter.post('/signin', async (req, res, next) => {
 		return next(new HttpException(401, 'Incorrect password.'));
 	}
 
+	const { JWT_SECRET: jwtSecret } = process.env;
 	if (!jwtSecret) {
 		return next(
 			new HttpException(500, 'Server is incorrectly configured.'),
@@ -54,7 +53,7 @@ authRouter.post('/signin', async (req, res, next) => {
 	});
 });
 
-authRouter.post('/signup', async (req, res, next) => {
+authRouter.post('/signup', async function (req, res, next) {
 	const { email, password } = req.body;
 	if (
 		!email ||
@@ -80,6 +79,7 @@ authRouter.post('/signup', async (req, res, next) => {
 		);
 	}
 
+	const { JWT_SECRET: jwtSecret } = process.env;
 	if (!jwtSecret) {
 		return next(
 			new HttpException(500, 'Server is incorrectly configured.'),
