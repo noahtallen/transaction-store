@@ -47,10 +47,15 @@ authRouter.post('/signin', async function (req, res, next) {
 	});
 	console.log('token:', token);
 
-	res.status(200).send({
-		userId: existingUser._id,
-		accessToken: token,
-	});
+	res.status(200)
+		.cookie('token', token, {
+			secure: true,
+			sameSite: 'strict',
+			httpOnly: true,
+		})
+		.send({
+			userId: existingUser._id,
+		});
 });
 
 authRouter.post('/signup', async function (req, res, next) {
@@ -113,10 +118,16 @@ authRouter.post('/signup', async function (req, res, next) {
 		expiresIn: '1d',
 	});
 
-	res.status(200).send({
-		userId: newUserId,
-		accessToken,
-	});
+	res.status(200)
+		.cookie('token', accessToken, {
+			secure: true,
+			sameSite: 'strict',
+			httpOnly: true,
+		})
+		.send({
+			userId: newUserId,
+			accessToken,
+		});
 });
 
 export default authRouter;

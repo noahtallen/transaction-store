@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "tsc && babel src --out-dir dist --extensions .ts",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "start": "npm run compile && node dist/index.js"
+    "start": "npm run compile && node dist/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "dependencies": {
     "argon2": "^0.27.0",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

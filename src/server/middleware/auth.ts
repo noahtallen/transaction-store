@@ -15,9 +15,11 @@ export default function authMiddleware(
 		);
 	}
 
-	const token = req.headers['x-access-token'] as string;
+	const token = (req.cookies?.token
+		? req.cookies?.token
+		: req.headers['x-access-token']) as string;
 	if (!token) {
-		return next(new HttpException(401, 'No token.'));
+		return next(new HttpException(401, 'No access token.'));
 	}
 
 	try {

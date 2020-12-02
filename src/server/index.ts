@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
+import cookieParser from 'cookie-parser';
 
 // Load config values.
 import * as dotenv from 'dotenv';
@@ -33,6 +34,8 @@ server.use(
 server.use(bodyParser.json());
 
 server.use(bodyParser.urlencoded({ extended: true }));
+
+server.use(cookieParser());
 
 // 3. Setup express routes:
 server.get('/', (req, res) => {
